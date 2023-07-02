@@ -1,0 +1,105 @@
+﻿@model VehicleDefinitionDto
+
+<h1>
+    Yeni Araç Tanımı
+</h1>
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+        <form method="post" asp-controller="VehicleDefinition" asp-action="Create">
+
+            <div class="mb-2">
+                <label class="form-label">Marka</label>
+                <select asp-items="(SelectList)ViewBag.VehicleMakeSelectList" id="vehicle_makes" class="form-select">
+                    <option value="">Marka Seçiniz</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="VehicleModelId">Model</label>
+                <select asp-for="VehicleModelId" class="form-select">
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="Year">Yıl</label>
+                <input type="number" asp-for="Year" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="SeatCount">Koltuk Sayısı</label>
+                <input type="number" asp-for="SeatCount" class="form-control" />
+            </div>
+            <div class="mb-2 d-flex justify-content-around">
+                <div class="form-check d-flex">
+                    <label class="form-label" asp-for="HasToilet">Tuvalet</label>
+                    <input type="checkbox" asp-for="HasToilet" value="true" class="form-check-input" />
+                </div>
+                <div class="form-check d-flex">
+                    <label class="form-label" asp-for="HasWifi">Wifi</label>
+                    <input type="checkbox" asp-for="HasWifi" value="true" class="form-check-input" />
+                </div>
+
+
+            </div>
+
+
+            <div class="mb-2 text-end">
+                <button class="btn btn-outline-danger">
+                    Kaydet
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<!--
+    AJAX
+    Asynchronous Javascript And XML
+-->
+@section Scripts
+{
+    <script>
+        // let vehicleMakesSelect = document.getElementById('vehicle_makes');
+
+        let vehicleMakesSelect = document.querySelector('#vehicle_makes');
+
+        vehicleMakesSelect.addEventListener('change', function () {
+
+            $.ajax({
+                url: `/VehicleModel/GetVehicleModelsByMakeId?vehicleMakeId=${this.value}`,
+                method: 'get',
+                async: true,
+                success: function (vehicleModels) {
+
+                    var vehicleModelsSelect = document.querySelector('#VehicleModelId');
+                    vehicleModelsSelect.innerHTML = null;
+
+                    for (let vehicleModel of vehicleModels) {
+                        let optionElement = document.createElement('option');
+                        optionElement.value = vehicleModel.id;
+                        optionElement.innerText = vehicleModel.name;
+
+                        /*
+                            <option value="{vehicleModel.id}">{vehicleModel.name}</option>
+                        */
+
+                        vehicleModelsSelect.appendChild(optionElement);
+                    }
+
+                }
+            });
+
+            console.log("Ajax Request açıldı");
+
+            // this.style.backgroundColor = 'red';
+            // this.style.width = '50px';
+            /*
+                <select style="background-color: 'red'">
+            */
+
+        });
+    </script>
+
+}

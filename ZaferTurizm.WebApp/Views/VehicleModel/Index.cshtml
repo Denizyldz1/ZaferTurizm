@@ -1,0 +1,112 @@
+﻿@model IEnumerable<VehicleModelSummary>
+
+<h1 class="justify-content-center d-flex">
+    Modeller
+</h1>
+
+<div class="row">
+        <table id="tableVehicleModel" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Model Adı</th>
+                    <th>Markası</th>
+                    <th>Değişiklik İşlemleri</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicleModel in Model)
+                {
+                    <tr>
+                        <td>@vehicleModel.Id</td>
+                        <td>@vehicleModel.Name</td>
+                        <td>@vehicleModel.VehicleMakeName</td>
+                        <td>
+                            @* Aşağıdaki a elementi yazım şekline ASP.NET Core'da "Tag helpers" deniyor *@
+                            <a asp-controller="VehicleModel" asp-action="Update" asp-route-id="@vehicleModel.Id" class="btn btn-outline-danger">Düzenle</a>
+
+                            @* Aşağıdaki a elementi yazım şekline "HTML helpers" deniyor *@
+                            @* @Html.ActionLink("Düzenle", "Update", "VehicleModel", new { id = vehicleModel.Id }) *@
+
+                            @*
+                        Yukarıdaki her iki yöntem de en nihayetinde aşağıdaki gibi salt html olarak bir a
+                        elementi üretecek
+                        *@
+                            @* <a href="/VehicleModel/Update/3">Düzenle</a> *@
+
+@*                        <a asp-controller="VehicleModel" asp-action="Delete" asp-route-id="@vehicleModel.Id" class="btn btn-outline-danger delete-button" data-vehicle-model-id="@vehicleModel.Id" name="delete-button">Sil</a>
+                    *@      <form method="post" name="deleteForm" asp-controller="VehicleModel" asp-action="Delete" class="d-inline">
+                            <input type="hidden" name="Id" value="@vehicleModel.Id">
+                            <button class="btn btn-outline-danger ml-2">Sil</button>
+                        </form>
+</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-end mb-2">
+            <a asp-controller="VehicleModel" asp-action="Create" class="btn btn-primary btn-sm">Yeni ekle</a>
+        </div>
+    </div>
+
+@section Scripts
+{
+
+    <script>
+        $('#tableVehicleModel').DataTable()
+    </script>
+
+    <script>
+        let formElement = document.getElementsByName('deleteForm');
+        for (let i = 0; i < formElement.length; i++){
+            formElement[i].addEventListener('submit', function (eventArgs){
+                let confirmed = confirm("Dikkat!! Bu kayıt silinecek, devam etmek istiyor musunuz?");
+                if(!confirmed){
+                    eventArgs.preventDefault();
+                }
+            });
+        }
+    </script>
+
+
+
+
+    @* <script>
+        let deleteButtonsJQ = $('.delete-buttons');
+
+        deleteButtonsJQ.click(function (e) {
+            e.preventDefault();
+            $.ajax({});
+
+            this.dataset.vehicleModelId
+
+            this.style.color = 'red';
+            $(this).css('color', 'red');
+        });
+
+        deleteButtonsJQ.on('click', function (e) {
+            e.preventDefault();
+            $.ajax({});
+        });
+
+    </script> *@
+
+@*    <script>
+
+        let deleteButtons = document.getElementsByClassName('delete-button');
+
+        for (let i = 0; i < deleteButtons.length; i++) {
+            let deleteButton = deleteButtons[i];
+
+            deleteButton.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                alert(this.dataset.vehicleModelId 'Id li kayıt silindi.');
+
+            });
+
+        }
+
+    </script>*@
+}

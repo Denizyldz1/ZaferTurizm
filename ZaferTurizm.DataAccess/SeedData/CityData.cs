@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ZaferTurizm.Domain;
+
+namespace ZaferTurizm.DataAccess.SeedData
+{
+    internal class CityData
+    {
+        public static readonly City Data01_Adana = new City() { Id = 1, Name = "Adana" };
+        public static readonly City Data02_Adiyaman = new City() { Id = 2, Name = "Adıyaman" };
+        public static readonly City Data03_Afyonkarahisar = new City() { Id = 3, Name = "Afyonkarahisar" };
+        public static readonly City Data04_Ağri = new City() { Id = 4, Name = "Ağrı" };
+        public static readonly City Data05_Amasya = new City() { Id = 5, Name = "Amasya" };
+        public static readonly City Data06_Ankara = new City() { Id = 6, Name = "Ankara" };
+        public static readonly City Data07_Antalya = new City() { Id = 7, Name = "Antalya" };
+        public static readonly City Data08_Artvin = new City() { Id = 8, Name = "Artvin" };
+        public static readonly City Data09_Aydin = new City() { Id = 9, Name = "Aydın" };
+        public static readonly City Data10_Balikesir = new City() { Id = 10, Name = "Balıkesir" };
+        public static readonly City Data11_Bilecik = new City() { Id = 11, Name = "Bilecik" };
+        public static readonly City Data12_Bingol = new City() { Id = 12, Name = "Bingöl" };
+        public static readonly City Data13_Bitlis = new City() { Id = 13, Name = "Bitlis" };
+        public static readonly City Data14_Bolu = new City() { Id = 14, Name = "Bolu" };
+        public static readonly City Data15_Burdur = new City() { Id = 15, Name = "Burdur" };
+        public static readonly City Data16_Bursa = new City() { Id = 16, Name = "Bursa" };
+        public static readonly City Data17_Canakkale = new City() { Id = 17, Name = "Çanakkale" };
+        public static readonly City Data18_Cankiri = new City() { Id = 18, Name = "Çankırı" };
+        public static readonly City Data19_Corum = new City() { Id = 19, Name = "Çorum" };
+        public static readonly City Data20_Denizli = new City() { Id = 20, Name = "Denizli" };
+        public static readonly City Data21_Diyarbakir = new City() { Id = 21, Name = "Diyarbakır" };
+        public static readonly City Data22_Edirne = new City() { Id = 22, Name = "Edirne" };
+        public static readonly City Data23_Elazig = new City() { Id = 23, Name = "Elazığ" };
+        public static readonly City Data24_Erzincan = new City() { Id = 24, Name = "Erzincan" };
+        public static readonly City Data25_Erzurum = new City() { Id = 25, Name = "Erzurum" };
+        public static readonly City Data26_Eskisehir = new City() { Id = 26, Name = "Eskişehir" };
+        public static readonly City Data27_Gaziantep = new City() { Id = 27, Name = "Gaziantep" };
+        public static readonly City Data28_Giresun = new City() { Id = 28, Name = "Giresun" };
+        public static readonly City Data29_Gümüşhane = new City() { Id = 29, Name = "Gümüşhane" };
+        public static readonly City Data30_Hakkari = new City() { Id = 30, Name = "Hakkari" };
+        public static readonly City Data31_Hatay = new City() { Id = 31, Name = "Hatay" };
+        public static readonly City Data32_Isparta = new City() { Id = 32, Name = "Isparta" };
+        public static readonly City Data33_Mersin = new City() { Id = 33, Name = "Mersin" };
+        public static readonly City Data34_İstanbul = new City() { Id = 34, Name = "İstanbul" };
+        public static readonly City Data35_İzmir = new City() { Id = 35, Name = "İzmir" };
+        public static readonly City Data36_Kars = new City() { Id = 36, Name = "Kars" };
+        public static readonly City Data37_Kastamonu = new City() { Id = 37, Name = "Kastamonu" };
+        public static readonly City Data38_Kayseri = new City() { Id = 38, Name = "Kayseri" };
+        public static readonly City Data39_Kirklareli = new City() { Id = 39, Name = "Kırklareli" };
+        public static readonly City Data40_Kırşehir = new City() { Id = 40, Name = "Kırşehir" };
+        public static readonly City Data41_Kocaeli = new City() { Id = 41, Name = "Kocaeli" };
+        public static readonly City Data42_Konya = new City() { Id = 42, Name = "Konya" };
+        public static readonly City Data43_Kütahya = new City() { Id = 43, Name = "Kütahya" };
+        public static readonly City Data44_Malatya = new City() { Id = 44, Name = "Malatya" };
+        public static readonly City Data45_Manisa = new City() { Id = 45, Name = "Manisa" };
+        public static readonly City Data46_Kahramanmaraş = new City() { Id = 46, Name = "Kahramanmaraş" };
+        public static readonly City Data47_Mardin = new City() { Id = 47, Name = "Mardin" };
+        public static readonly City Data48_Muğla = new City() { Id = 48, Name = "Muğla" };
+        public static readonly City Data49_Muş = new City() { Id = 49, Name = "Muş" };
+        public static readonly City Data50_Nevşehir = new City() { Id = 50, Name = "Nevşehir" };
+        public static readonly City Data51_Niğde = new City() { Id = 51, Name = "Niğde" };
+        public static readonly City Data52_Ordu = new City() { Id = 52, Name = "Ordu" };
+        public static readonly City Data53_Rize = new City() { Id = 53, Name = "Rize" };
+        public static readonly City Data54_Sakarya = new City() { Id = 54, Name = "Sakarya" };
+        public static readonly City Data55_Samsun = new City() { Id = 55, Name = "Samsun" };
+        public static readonly City Data56_Siirt = new City() { Id = 56, Name = "Siirt" };
+        public static readonly City Data57_Sinop = new City() { Id = 57, Name = "Sinop" };
+        public static readonly City Data58_Sivas = new City() { Id = 58, Name = "Sivas" };
+        public static readonly City Data59_Tekirdağ = new City() { Id = 59, Name = "Tekirdağ" };
+        public static readonly City Data60_Tokat = new City() { Id = 60, Name = "Tokat" };
+        public static readonly City Data61_Trabzon = new City() { Id = 61, Name = "Trabzon" };
+        public static readonly City Data62_Tunceli = new City() { Id = 62, Name = "Tunceli" };
+        public static readonly City Data63_Şanliurfa = new City() { Id = 63, Name = "Şanlıurfa" };
+        public static readonly City Data64_Uşak = new City() { Id = 64, Name = "Uşak" };
+        public static readonly City Data65_Van = new City() { Id = 65, Name = "Van" };
+        public static readonly City Data66_Yozgat = new City() { Id = 66, Name = "Yozgat" };
+        public static readonly City Data67_Zonguldak = new City() { Id = 67, Name = "Zonguldak" };
+        public static readonly City Data68_Aksaray = new City() { Id = 68, Name = "Aksaray" };
+        public static readonly City Data69_Bayburt = new City() { Id = 69, Name = "Bayburt" };
+        public static readonly City Data70_Karaman = new City() { Id = 70, Name = "Karaman" };
+        public static readonly City Data71_Kirikkale = new City() { Id = 71, Name = "Kırıkkale" };
+        public static readonly City Data72_Batman = new City() { Id = 72, Name = "Batman" };
+        public static readonly City Data73_Şirnak = new City() { Id = 73, Name = "Şırnak" };
+        public static readonly City Data74_Bartin = new City() { Id = 74, Name = "Bartın" };
+        public static readonly City Data75_Ardahan = new City() { Id = 75, Name = "Ardahan" };
+        public static readonly City Data76_Iğdir = new City() { Id = 76, Name = "Iğdır" };
+        public static readonly City Data77_Yalova = new City() { Id = 77, Name = "Yalova" };
+        public static readonly City Data78_Karabük = new City() { Id = 78, Name = "Karabük" };
+        public static readonly City Data79_Kilis = new City() { Id = 79, Name = "Kilis" };
+        public static readonly City Data80_Osmaniye = new City() { Id = 80, Name = "Osmaniye" };
+        public static readonly City Data81_Düzce = new City() { Id = 81, Name = "Düzce" };
+
+    }
+}

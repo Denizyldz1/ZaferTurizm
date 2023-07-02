@@ -1,0 +1,89 @@
+﻿@model VehicleSummary
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h1>
+    Yeni Araç Ekle
+</h1>
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+        <form method="post" asp-controller="Vehicle" asp-action="Create">
+
+            <div class="mb-2">
+                <label class="form-label">Marka</label>
+                <select asp-items="(SelectList)ViewBag.VehicleMakeSelectList" id="vehicle_makes" class="form-select">
+                    <option value="">Marka Seçiniz</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="VehicleModelId">Model</label>
+                <select asp-for="VehicleModelId" class="form-select">
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="VehicleDefinitionId">Araç Tanımı</label>
+                <select asp-items="(SelectList)ViewBag.VehicleDefinitionSelectList" class="form-select">
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="PlateNumber">Plaka Numarası</label>
+                <input type="text" asp-for="PlateNumber" class="form-control" />
+            </div>
+
+            <div class="mb-2 text-end">
+                <button class="btn btn-outline-danger">
+                    Kaydet
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<!--
+    AJAX
+    Asynchronous Javascript And XML
+-->
+@section Scripts
+    {
+    <script>
+        // let vehicleMakesSelect = document.getElementById('vehicle_makes');
+
+        let vehicleMakesSelect = document.querySelector('#vehicle_makes');
+
+        vehicleMakesSelect.addEventListener('change', function () {
+
+            $.ajax({
+                url: `/VehicleModel/GetVehicleModelsByMakeId?vehicleMakeId=${this.value}`,
+                method: 'get',
+                async: true,
+                success: function (vehicleModels) {
+
+                    var vehicleModelsSelect = document.querySelector('#VehicleModelId');
+                    vehicleModelsSelect.innerHTML = null;
+
+                    for (let vehicleModel of vehicleModels) {
+                        let optionElement = document.createElement('option');
+                        optionElement.value = vehicleModel.id;
+                        optionElement.innerText = vehicleModel.name;
+
+                        /*
+                            <option value="{vehicleModel.id}">{vehicleModel.name}</option>
+                        */
+
+                        vehicleModelsSelect.appendChild(optionElement);
+                    }
+
+                }
+            });
+
+        });
+    </script>
+
+}

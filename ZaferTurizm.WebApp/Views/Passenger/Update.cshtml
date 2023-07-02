@@ -1,0 +1,46 @@
+﻿@model PassengerDto
+
+<h1>
+    Müşteri Bilgilerini Güncelle
+</h1>
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+        <form method="post" asp-controller="Passenger" asp-action="Update">
+            @Html.HiddenFor(p=>p.Id)
+
+            <div class="mb-2">
+                <label class="form-label" asp-for="FirstName">Müşteri Adı</label>
+                <input type="text" asp-for="FirstName" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="LastName">Müşteri Soyadı</label>
+                <input type="text" asp-for="LastName" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label" asp-for="IdentityNumber">TC Kimlik Numarası</label>
+                <input type="number" asp-for="IdentityNumber" class="form-control" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Cinsiyet</label>
+                <label class="form-check-label">
+                    <input type="radio" asp-for="Gender" value="2" class="form-check-input" />
+                    Erkek
+                </label>
+                <label class="form-check-label">
+                    <input type="radio" asp-for="Gender" value="1" class="form-check-input" />
+                    Kadın
+                </label>
+            </div>
+
+
+            <div class="mb-2 text-end">
+                <button class="btn btn-outline-danger">
+                    Güncelle
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

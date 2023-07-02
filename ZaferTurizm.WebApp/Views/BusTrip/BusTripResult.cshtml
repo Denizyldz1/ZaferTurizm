@@ -1,0 +1,49 @@
+﻿@model List<BusTripInfo>
+
+@{
+    ViewData["Title"] = "BusTripResult";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h1 class="justify-content-center d-flex">
+    Aktif Rotalar
+</h1>
+
+@if (Model.Count < 0)
+{
+    <div class="row">
+        <h3>Aktif Rota bulunamadı</h3>
+    </div>
+
+}
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rotası</th>
+                <th>Tarih</th>
+                <th>Ücreti</th>
+                <th>Plakası</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.RouteName</td>
+                    <td>@item.Date</td>
+                    <td>@item.Price</td>
+                    <td>@item.PlateNumber</td>
+                    <td>
+                        <a asp-controller="Ticket" asp-action="TicketsOfBusTrip" asp-route-busTripId="@item.Id" class="btn btn-danger">Bilet Oluştur</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

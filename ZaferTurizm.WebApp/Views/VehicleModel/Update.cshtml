@@ -1,0 +1,31 @@
+﻿@model VehicleModelDto
+
+<h1>
+    Model Güncelle
+</h1>
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+        <form method="post" asp-controller="VehicleModel" asp-action="Update">
+            @Html.HiddenFor(p=>p.Id)
+            <div class="mb-2">
+                <label asp-for="Name">Model Adı</label>
+                <input class="form-control" asp-for="Name" />
+            </div>
+
+            <div class="mb-2">
+                <label asp-for="VehicleMakeId">Markası</label>
+                <select asp-for="VehicleMakeId" class="form-select" asp-items="ViewBag.VehicleMakeSelectList">
+                </select>
+            </div>
+
+            <div class="mb-2 text-end">
+                <button class="btn btn-outline-success">
+                    Kaydet
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

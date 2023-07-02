@@ -1,0 +1,65 @@
+﻿@model IEnumerable<VehicleDefinitionSummary>
+
+<h1 class="justify-content-center d-flex">
+    Araç Tanımları</h1>
+
+<div class="row">
+        <table id="tableVehicleDefinition" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Yılı</th>
+                    <th>Koltuk Sayısı</th>
+                    <th>Lavabo</th>
+                    <th>Wifi</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicleDefinition in Model)
+                {
+                    <tr>
+                        <td>@vehicleDefinition.Id</td>
+                        <td>@vehicleDefinition.VehicleMakeName</td>
+                        <td>@vehicleDefinition.VehicleModelName</td>
+                        <td>@vehicleDefinition.Year</td>
+                        <td>@vehicleDefinition.SeatCount</td>
+                        <td>@vehicleDefinition.HasToiletString</td>
+                        <td>@vehicleDefinition.HasWifiString</td>
+                        <td>
+                        <a asp-controller="VehicleDefinition" asp-action="Update" asp-route-id="@vehicleDefinition.Id" class="btn btn-outline-danger">Düzenle</a>
+@*                        <a asp-controller="VehicleDefinition" asp-action="Delete" asp-route-id ="@vehicleDefinition.Id" class="btn btn-outline-danger">Sil</a>*@
+                        <form method="post" name="deleteForm" asp-controller="VehicleDefinition" asp-action="Delete" class="d-inline">
+                            <input type="hidden" name="Id" value="@vehicleDefinition.Id">
+                            <button class="btn btn-outline-danger ml-2">Sil</button>
+                        </form>
+                         </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    <div class="text-end mb-2">
+        <a asp-controller="VehicleDefinition" asp-action="Create" class="btn btn-primary btn-sm">Yeni ekle</a>
+    </div>
+    </div>
+    @section Scripts
+{
+
+    <script>
+        $('#tableVehicleDefinition').DataTable()
+    </script>
+
+    <script>
+        let formElement = document.getElementsByName('deleteForm');
+        for (let i = 0; i < formElement.length; i++){
+            formElement[i].addEventListener('submit', function (eventArgs){
+                let confirmed = confirm("Dikkat!! Bu kayıt silinecek, devam etmek istiyor musunuz?");
+                if(!confirmed){
+                    eventArgs.preventDefault();
+                }
+            });
+        }
+    </script>
+    }

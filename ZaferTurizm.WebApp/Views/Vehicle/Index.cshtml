@@ -1,0 +1,37 @@
+﻿@model IEnumerable<VehicleSummary>
+
+<h1 class="justify-content-center d-flex">
+    Araç Detay Bilgileri
+</h1>
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Plakası</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicleSummary in Model)
+            {
+                <tr>
+                    <td>@vehicleSummary.Id</td>
+                    <td>@vehicleSummary.VehicleMakeName</td>
+                    <td>@vehicleSummary.VehicleModelName</td>
+                    <td>@vehicleSummary.PlateNumber</td>
+                    <td>
+                        <a asp-controller="Vehicle" asp-action="Update" asp-route-id="@vehicleSummary.Id" class="btn btn-outline-danger">Düzenle</a>
+                        <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@vehicleSummary.Id" class="btn btn-outline-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-end mb-2">
+        <a asp-controller="Vehicle" asp-action="Create" class="btn btn-primary btn-sm">Yeni ekle</a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\bin\Debug\net6.0\ZaferTurizm.deps.json
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\bin\Debug\net6.0\ZaferTurizm.dll
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\bin\Debug\net6.0\ZaferTurizm.pdb
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.dll
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\refint\ZaferTurizm.dll
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ZaferTurizm.pdb
+C:\Users\ASUS\Desktop\Emre Hoca Wissen\ZaferTurizm\ZaferTurizm\obj\Debug\net6.0\ref\ZaferTurizm.dll

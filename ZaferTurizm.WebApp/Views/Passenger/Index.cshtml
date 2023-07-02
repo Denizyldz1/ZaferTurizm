@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PassengerDto>
+
+<h1 class="justify-content-center d-flex">Tüm Müşteriler</h1>
+
+<div class="row">
+    <div class="col-12 col-md-8">
+
+        <table id="tablePassenger" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Müşteri İsmi</th>
+                    <th>Müşteri TC Numarası</th>
+                    <th>Cinsiyet</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var passenger in Model)
+                {
+                    <tr>
+                        <td>@passenger.Id</td>
+                        <td>@passenger.FirstName @passenger.LastName</td>
+                        <td>@passenger.IdentityNumber</td>
+
+                            @if(@passenger.Gender == ZaferTurizm.Gender.Male){
+                                <td>Erkek</td>
+                            }
+                        @if(passenger.Gender == ZaferTurizm.Gender.Female)
+                        {
+                            <td>Kadın</td>
+                        }
+                        @if (passenger.Gender == ZaferTurizm.Gender.None)
+                        {
+                            <td>Belirtilmedi</td>
+                        }
+
+                        <td><a asp-asp-controller="Passenger" asp-action="Update" class="btn btn-outline-danger" asp-route-id="@passenger.Id">Bilgileri Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-end mb-2">
+            <a asp-controller="Passenger" asp-action="Create" class="btn btn-primary btn-sm">Yeni Müşteri Kaydet</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts 
+{
+    <script>
+        $('#tablePassenger').DataTable()
+    </script>
+}
+
+

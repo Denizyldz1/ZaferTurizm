@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TicketDto>
+
+<h1 class="justify-content-center d-flex">Bütün Biletler</h1>
+
+<div class="row">
+    <div class="col-12 col-md-8">
+
+        <table id="tableTicket" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Sefer Bilgisi</th>
+                    <th>Müşteri İsmi</th>
+                    <th>Müşteri TC Numarası</th>
+                    <th>Koltuk Numarası</th>
+                    <th>Ücret</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ticket in Model)
+                {
+                    <tr>
+                        <td>@ticket.Id</td>
+                        <td>@ticket.BusTripName</td>
+                        <td>@ticket.PassengerFirstName @ticket.PassengerLastName</td>
+                        <td>@ticket.PassengerIdentityNumber</td>
+                        <td>@ticket.SeatNumber</td>
+                        <td>@ticket.Price</td>
+                        <td><a asp-controller="Ticket" asp-action="TicketPrint" asp-route-id="@ticket.Id" class="btn btn-danger">Bileti Yazdır</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $('#tableTicket').DataTable()
+    </script>
+}
+
+

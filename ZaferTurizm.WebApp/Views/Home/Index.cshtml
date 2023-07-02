@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Css
+    {
+    <style>
+ 
+        .flipping-cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .flipping-cards .container {
+                transform-style: preserve-3d;
+            }
+
+                .flipping-cards .container .box {
+                    position: relative;
+                    width: 300px;
+                    height: 500px;
+                    margin: 20px;
+                    transform-style: preserve-3d;
+                    perspective: 1000px;
+                    cursor: pointer;
+                }
+
+                    .flipping-cards .container .box .body {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        transform-style: preserve-3d;
+                        transition: 0.9s ease;
+                    }
+
+                        .flipping-cards .container .box .body .imgContainer {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            transform-style: preserve-3d;
+                        }
+
+                            .flipping-cards .container .box .body .imgContainer img {
+                                position: relative;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                            }
+
+                        .flipping-cards .container .box .body .imageText {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 36px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+
+                        .flipping-cards .container .box .body .content {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: #333;
+                            backface-visibility: hidden;
+                            transform-style: preserve-3d;
+                            transform: rotateY(180deg);
+                        }
+
+                    .flipping-cards .container .box:hover .body {
+                        transform: rotateY(180deg);
+                    }
+
+                    .flipping-cards .container .box .body .content div {
+                        transform-style: preserve-3d;
+                        padding: 20px;
+                        background: linear-gradient(45deg, #FE0061, #FFEB3B);
+                        transform: translateZ(100px);
+                    }
+
+                        .flipping-cards .container .box .body .content div h3 {
+                            letter-spacing: 1px;
+                        }
+    </style>
+}
+
+<div class="flipping-cards">
+    <div class="container d-flex align-items-center justify-content-center flex-wrap flipping-cards">
+    <div class="box">
+        <div class="body">
+            <div class="imgContainer">
+                <img src="~/img/bus.jpg" alt="">
+                    <span class="imageText w-100">Araç İşlemleri</span>
+            </div>
+            <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <a class="btn btn-danger" href="/VehicleMake">Marka İşlemleri</a>
+                        <br/>
+                        <a class="btn btn-danger" href="/VehicleModel">Model İşlemleri</a>
+                        <br />
+                        <a class="btn btn-danger" href="/VehicleDefinition">Araç Tanımı İşlemleri</a>
+                        <br />
+                        <a class="btn btn-danger" href="/Vehicle">Yeni Araç Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="body">
+            <div class="imgContainer">
+                <img src="https://images.pexels.com/photos/1532771/pexels-photo-1532771.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+                    <span class="imageText w-100">Yolculuk İşlemleri</span>
+            </div>
+            <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <a class="btn btn-danger" href="/Route">Rota İşlemleri</a>
+                        <br />
+                        <a class="btn btn-danger" href="/BusTrip">Sefer İşlemleri</a>
+                        <br />
+                        <a class="btn btn-danger" href="/Ticket">Bilet İşlemleri</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="body">
+            <div class="imgContainer">
+                <img src="https://images.pexels.com/photos/573238/pexels-photo-573238.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="">
+                    <span class="imageText w-100">Müşteri İşlemleri</span>
+            </div>
+            <div class="content d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <a class="btn btn-danger" href="/Passenger">Müşteriler</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

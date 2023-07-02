@@ -1,0 +1,107 @@
+﻿@model BusTripInfo
+
+@{
+    ViewData["Title"] = "BusTripSearch";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h1 class="justify-content-center d-flex">
+    Sefer Sorgulama Ekranı
+</h1>
+
+                <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
+    <form method="post" class="tm-search-form tm-section-pad-2" asp-controller="BusTrip" asp-action="BusTripResult">
+                        <div class="form-row tm-search-form-row">
+                            <div class="form-group tm-form-element tm-form-element-50">
+                <select asp-items="(SelectList)ViewBag.DepartureCities" asp-for="DepartureId" id="departure-city" class="form-select">
+                    <option value="">Marka Seçiniz</option>
+                </select>
+                            </div>
+                            <div class="form-group tm-form-element tm-form-element-50">
+                                  <select asp-for="ArrivalId" class="form-select">
+                                  </select>
+                            </div>
+                            <div class="form-group tm-form-element tm-form-element-2 float-end ">
+                                <button type="submit" class="btn btn-primary tm-btn-search">Kontrol Et</button>
+                            </div>
+                        </div>
+                        <div class="form-group tm-form-element tm-form-element-2 float-start w-auto ">
+                            <p class="tm-margin-b- float-start">Sadece aktif rotalara ait iller görüntülenebilmektedir</p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+@*@if (ViewData["BusTripList"] != null)
+{
+    <div class="row">
+        <div class="col-12 col-md-8">
+
+            <h5>Bu sayfada geçmiş tarihli etkinlikler görüntülenmez.</h5>
+            <table id="tableBusTrip" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Kalkış</th>
+                        <th>Varış</th>
+                        <th>Tarih</th>
+                        <th>Marka</th>
+                        <th>Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var busTrip in ViewData["BusTripList"] as List<BusTripInfo>)
+                    {
+                        <tr>
+                            <td>@busTrip.Id</td>
+                            <td>@busTrip.DepartureName</td>
+                            <td>@busTrip.ArrivalName</td>
+                            <td>@busTrip.Date</td>
+                            <td>@busTrip.VehicleMakeName</td>
+                            <td>@busTrip.VehicleModelName</td>
+                            <td>
+                                <a asp-controller="Ticket" asp-action="TicketsOfBusTrip" asp-route-busTripId="@busTrip.Id" class="btn btn-danger">Bilet Oluştur</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}*@
+@section Scripts
+    {
+    <script>
+
+        document.querySelector('#departure-city').addEventListener('change', function () {
+
+            $.ajax({
+                url: `/BusTrip/GetArrivalsByDepartureId?departureId=${this.value}`,
+                method: 'get',
+                async: true,
+                success: function (events) {
+
+                    var vehicleModelsSelect = document.querySelector('#ArrivalId');
+                    vehicleModelsSelect.innerHTML = null;
+
+                    for (let arrival of events) {
+                        let optionElement = document.createElement('option');
+                        optionElement.value = arrival.arrivalId;
+                        optionElement.innerText = arrival.arrivalName;
+
+                        vehicleModelsSelect.appendChild(optionElement);
+                    }
+
+                }
+            });
+
+            console.log("Ajax Request açıldı");
+
+
+
+        });
+    </script>
+
+}
+

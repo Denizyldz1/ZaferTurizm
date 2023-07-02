@@ -1,0 +1,56 @@
+﻿@model IEnumerable<RouteSummary>
+
+<h1 class="justify-content-center d-flex">
+    Rota Bilgileri
+</h1>
+
+<div class="row">
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kalkış Şehri</th>
+                <th>Varış Şehri</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.DepartureName</td>
+                    <td>@item.ArrivalName</td>
+                    <td>
+                        <a class="btn btn-outline-danger" href="/Route/Update/@item.Id">Düzenle</a>
+                        @* <form method="post" action="/VehicleMake/Delete"> *@
+                        <form method="post" name="deleteForm" asp-controller="Route" asp-action="Delete" class="d-inline">
+                            <input type="hidden" name="Id" value="@item.Id">
+                            <button class="btn btn-outline-danger ml-2">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <div class="text-end mb-2">
+        <a asp-controller="Route" asp-action="Create" class="btn btn-primary btn-sm">Yeni Rota Oluştur</a>
+    </div>
+</div>
+@section Scripts
+    {
+    <script>
+        let formElement = document.getElementsByName('deleteForm');
+        for (let i = 0; i < formElement.length; i++) {
+            formElement[i].addEventListener('submit', function (eventArgs) {
+                let confirmed = confirm("Dikkat!! Bu kayıt silinecek, devam etmek istiyor musunuz?");
+                if (!confirmed) {
+                    eventArgs.preventDefault();
+                }
+            });
+        }
+    </script>
+    }

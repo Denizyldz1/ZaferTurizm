@@ -1,0 +1,33 @@
+﻿<div class="tm-top-bar-bg"></div>
+<div class="tm-top-bar" id="tm-top-bar">
+<div class="container">
+    <div class="row">
+
+        <nav class="navbar navbar-expand-lg narbar-light">
+                <a class="navbar-brand mr-auto" asp-controller="Home" asp-action="Index">
+                <img src="~/2095_level/img/logo.png" alt="Site logo">
+                Zafer Turizm
+            </a>
+            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="BusTrip">Seferler</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="Passenger">Müşteriler</a>
+                    </li>
+                                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Vehicle">Araçlar</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+</div>
